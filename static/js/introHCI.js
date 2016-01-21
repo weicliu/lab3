@@ -56,8 +56,14 @@ function projectClick(e){
     var containingProject = $(this).closest(".project");
     var description = $(containingProject).find(".project-description");
     if (description.length == 0) {
-       $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+       $(containingProject).append("<div class='project-description'><p>Description of the project.</p><img src='images/lorempixel.jumbotron.jpeg'></div>");
     } else {
-       $(this).next().fadeOut();
+    	var descriptionExisting = $(this).next();
+    	descriptionExisting.fadeOut();
+    	if (descriptionExisting.css("display") != "none")
+    		descriptionExisting.fadeOut();
+    	else
+    		descriptionExisting.fadeIn();
+    		
     }
 }
